@@ -5,10 +5,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
 
-@WebServlet("/createPlaylist")
+@WebServlet(name = "CreatePlaylistServlet", value = "/createPlaylist")
 public class CreatePlaylistServlet extends HttpServlet {
     private static final String PLAYLIST_FOLDER = "C:\\Users\\Francesco\\OneDrive\\Desktop\\Scuola\\tempFile";
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String playlistName = request.getParameter("playlistName");
 
@@ -22,6 +22,10 @@ public class CreatePlaylistServlet extends HttpServlet {
             newPlaylist.createNewFile();
         }
 
+        response.sendRedirect("home");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("home");
     }
 }

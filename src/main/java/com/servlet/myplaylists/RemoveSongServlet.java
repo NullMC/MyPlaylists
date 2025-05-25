@@ -6,10 +6,10 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 
-@WebServlet("/removeSong")
+@WebServlet(name ="RemoveSongServlet", value ="/removeSong")
 public class RemoveSongServlet extends HttpServlet {
     private static final String PLAYLIST_FOLDER = "C:\\Users\\Francesco\\OneDrive\\Desktop\\Scuola\\tempFile";
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String playlist = request.getParameter("playlist");
         String titolo = request.getParameter("titolo");
